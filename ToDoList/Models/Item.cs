@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Triangle.Tracker
+namespace 
 {
     class Program
     {
