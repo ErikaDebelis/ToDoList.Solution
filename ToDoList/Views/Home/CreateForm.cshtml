@@ -1,0 +1,12 @@
+<form action="/items" method="post">
+  <label for="description">Add a new item</label>
+  <input id="description" name="description" type="text">
+  <button type="submit">Submit</button>
+</form>
+@* The <form> tag includes an action='/items' attribute. This means our form will route to '/items' in our controller.
+
+The form also includes a method="post" attribute. When a form is being used to create a new object, it must have a post method. This creates a special type of HTTP request called a POST request. 
+
+the name is required and should accurately describe the input we're retrieving from users. Here we set it to description.
+
+the <button> type attribute must be set to 'submit'. If it isn't, the form won't trigger the correct route in the controller.*@
