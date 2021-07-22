@@ -32,7 +32,7 @@ namespace ToDoList
       {
         routes.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
       });
-
+//app.UseEndPoints is basically saying "the default page we'll be looking for in home controller and the cshtml file called Index/
       app.Run(async (context) =>
       {
         await context.Response.WriteAsync("Hello World!");

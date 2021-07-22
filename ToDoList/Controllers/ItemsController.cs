@@ -13,8 +13,15 @@ namespace ToDoList.Controllers
       List<Item> allItems = Item.GetAll();
       return View(allItems);
     }
+        [HttpGet("/items/{id}")] //our route is now utilizing dynamic routing-URL paths that can dynamically change depending on circumstances
+    public ActionResult Show(int id)
+    {
+      Item foundItem = Item.Find(id);
+      return View(foundItem);
+    }
+
     [HttpGet("/items/new")]
-    public ActionResult CreateForm()
+    public ActionResult New()
     {
       return View();
       // The route simply returns View(). Because our form resides in a file called CreateForm.cshtml, the CreateForm() route method will automatically render this view.
@@ -28,6 +35,12 @@ namespace ToDoList.Controllers
       //While we could add List<Item> allItems = Item.GetAll(); to our Create() method, it wouldn't be very DRY.
 
 //Instead, we can use a method called RedirectToAction() to redirect to another route. RedirectToAction() takes a route method as an argument. RedirectToAction("Index"); tells the server to invoke the Index() route after the Create() route has been invoked. This means we don't have to repeat the code in Index(). We can just tell Create() to redirect to Index() instead.
+    }
+    [HttpPost("/items/delete")]
+    public ActionResult DeleteAll()
+    {
+      Item.ClearAll();
+      return View();
     }
 
   }
